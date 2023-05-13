@@ -1,0 +1,8 @@
+provider:
+  registry: faas
+  name: faas
+
+function:
+  name: ml-human
+  runtime: python3.9
+  skip_build: true

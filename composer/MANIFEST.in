@@ -1,0 +1,20 @@
+graft docs
+graft src
+graft tests
+
+include .bumpversion.cfg
+include .coveragerc
+
+include *.md
+include samples/demo.py
+include LICENSE.txt
+include README.md
+
+include tox.ini .travis.yml
+include travis/*.sh
+
+prune action
+exclude index.js
+exclude package.json 
+
+global-exclude *.py[cod] __pycache__

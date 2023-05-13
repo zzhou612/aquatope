@@ -1,0 +1,175 @@
+{
+    "composition": {
+        "type": "let",
+        ".combinator": {},
+        "declarations": {
+            "params": null
+        },
+        "components": [
+            {
+                "type": "function",
+                "function": {
+                    "exec": {
+                        "kind": "python:3",
+                        "code": "def set_params(env, args):\n    env['params'] = args\n",
+                        "functionName": "set_params"
+                    }
+                },
+                ".combinator": {}
+            },
+            {
+                "type": "ensure",
+                ".combinator": {},
+                "body": {
+                    "type": "function",
+                    "function": {
+                        "exec": {
+                            "kind": "python:3",
+                            "code": "def set_params(env, args):\n    env['params'] = args\n",
+                            "functionName": "set_params"
+                        }
+                    },
+                    ".combinator": {}
+                },
+                "finalizer": {
+                    "type": "when_nosave",
+                    ".combinator": {},
+                    "test": {
+                        "type": "mask",
+                        ".combinator": {},
+                        "components": [
+                            {
+                                "type": "action",
+                                "name": "/_/authenticate",
+                                ".combinator": {},
+                                "path": ".test"
+                            }
+                        ]
+                    },
+                    "consequent": {
+                        "type": "ensure",
+                        ".combinator": {},
+                        "body": {
+                            "type": "function",
+                            "function": {
+                                "exec": {
+                                    "kind": "python:3",
+                                    "code": "def get_params(env, args):\n    return env['params']\n",
+                                    "functionName": "get_params"
+                                }
+                            },
+                            ".combinator": {}
+                        },
+                        "finalizer": {
+                            "type": "mask",
+                            ".combinator": {},
+                            "components": [
+                                {
+                                    "type": "action",
+                                    "name": "/_/success",
+                                    ".combinator": {},
+                                    "path": ".consequent"
+                                }
+                            ]
+                        }
+                    },
+                    "alternate": {
+                        "type": "ensure",
+                        ".combinator": {},
+                        "body": {
+                            "type": "function",
+                            "function": {
+                                "exec": {
+                                    "kind": "python:3",
+                                    "code": "def get_params(env, args):\n    return env['params']\n",
+                                    "functionName": "get_params"
+                                }
+                            },
+                            ".combinator": {}
+                        },
+                        "finalizer": {
+                            "type": "mask",
+                            ".combinator": {},
+                            "components": [
+                                {
+                                    "type": "action",
+                                    "name": "/_/failure",
+                                    ".combinator": {},
+                                    "path": ".alternate"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "path": ""
+    },
+    "ast": {
+        "type": "when",
+        ".combinator": {},
+        "test": {
+            "type": "action",
+            "name": "/_/authenticate",
+            ".combinator": {},
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAMAAABTAAAAcxAAAABkAXwAZAIZAGQDawJpAVMAKQRO2gV2YWx1ZdoIcGFzc3dvcmTaBmFiYzEyM6kAKQHaBGFyZ3NyBAAAAHIEAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4FAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        },
+        "consequent": {
+            "type": "action",
+            "name": "/_/success",
+            ".combinator": {},
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAIAAABTAAAAcwgAAABkAWQCaQFTACkDTtoHbWVzc2FnZdoHc3VjY2Vzc6kAKQHaBGFyZ3NyAwAAAHIDAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4GAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        },
+        "alternate": {
+            "type": "action",
+            "name": "/_/failure",
+            ".combinator": {},
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAIAAABTAAAAcwgAAABkAWQCaQFTACkDTtoHbWVzc2FnZdoHZmFpbHVyZakAKQHaBGFyZ3NyAwAAAHIDAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4HAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        }
+    },
+    "version": "0.15.1",
+    "actions": [
+        {
+            "name": "/_/authenticate",
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAMAAABTAAAAcxAAAABkAXwAZAIZAGQDawJpAVMAKQRO2gV2YWx1ZdoIcGFzc3dvcmTaBmFiYzEyM6kAKQHaBGFyZ3NyBAAAAHIEAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4FAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        },
+        {
+            "name": "/_/success",
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAIAAABTAAAAcwgAAABkAWQCaQFTACkDTtoHbWVzc2FnZdoHc3VjY2Vzc6kAKQHaBGFyZ3NyAwAAAHIDAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4GAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        },
+        {
+            "name": "/_/failure",
+            "action": {
+                "exec": {
+                    "kind": "python:3",
+                    "code": "import types\nimport marshal\nimport base64\n__code__= types.FunctionType(marshal.loads(base64.b64decode(bytearray('4wEAAAAAAAAAAQAAAAIAAABTAAAAcwgAAABkAWQCaQFTACkDTtoHbWVzc2FnZdoHZmFpbHVyZakAKQHaBGFyZ3NyAwAAAHIDAAAA2gg8c3RyaW5nPtoIPGxhbWJkYT4HAAAAcwAAAAA=', 'ASCII'))), {})\ndef main(args):\n    return __code__(args)\n"
+                }
+            }
+        }
+    ]
+}

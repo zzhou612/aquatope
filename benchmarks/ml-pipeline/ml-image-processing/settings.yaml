@@ -1,0 +1,8 @@
+provider:
+  registry: faas
+  name: faas
+
+function:
+  name: ml-image-processing
+  runtime: python3.9
+  skip_build: true

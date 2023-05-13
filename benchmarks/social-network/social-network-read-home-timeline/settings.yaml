@@ -1,0 +1,8 @@
+provider:
+  registry: faas
+  name: faas
+
+function:
+  name: social-network-read-home-timeline
+  runtime: python3.9
+  skip_build: true
