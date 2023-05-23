@@ -1,0 +1,7 @@
+provider:
+  registry: zzhou612
+  name: faas
+
+runtime:
+  name: python3.9
+  skip_build: true
