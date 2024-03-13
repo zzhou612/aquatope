@@ -16,7 +16,7 @@ Both container pool scheduler and container resource manager utilize `owlib` to 
 
 Before training the prediction model, we first construct and train the LSTM encoder-decoder to extract latent features from a serverless trace. The model `lstm_encoder_decoder` will be saved in `model_artifacts` directory.
 
-```bash
+```
 python train_lstm_encoder_decoder.py \
     --n_input_steps <default=48> \
     --n_output_steps <default=12> \
@@ -32,7 +32,7 @@ python train_lstm_encoder_decoder.py \
 Then, we train a prediction network to forecast the number of active
 containers in the next time window. The model `predict` will be saved in `model_artifacts` directory.
 
-```bash
+```
 python train_lstm_encoder_decoder.py \
     --n_input_steps <default=48> \
     --n_output_steps <default=1> \
@@ -47,7 +47,7 @@ python train_lstm_encoder_decoder.py \
 
 Finally, the `container_pool_scheduler` uses the pretrained LSTM encoder-decoder and prediction network to perform full inference and adjust the number of containers in the container pool accordingly.
 
-```bash
+```
 python scheduler.py \
     --n_input_steps <default=48> \
     --n_output_steps <default=1> \ 
@@ -58,7 +58,7 @@ python scheduler.py \
 
 Deploy the container resource manager and optimize the resource configurations of target workflows.
 
-```bash
+```
 python manager.py \
     --n_init <default=10> \
     --n_batch <default=20> \
